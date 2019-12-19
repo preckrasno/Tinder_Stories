@@ -25,4 +25,5 @@ jobs:
         CI: true
     - name: deploy
       run: |
+        echo $PASS_TO_HTML
         cp -a build/ $PASS_TO_HTML
