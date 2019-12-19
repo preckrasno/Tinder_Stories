@@ -25,4 +25,4 @@ jobs:
         CI: true
     - name: deploy
       run: |
-        pwd
+        cp -a build/ $PASS_TO_HTML
