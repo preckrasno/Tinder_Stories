@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import './App.scss';
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+//import { BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Pages
+import MainPage from './pages/MainPage/MainPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import TestPage from './pages/TestPage/TestPage';
+import ContactPage from './pages/ContactPage/ContactPage';
+import ArchivePage from './pages/ArchivePage/ArchivePage';
+
+class App extends Component {
+  render() {
+    return <Router>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/testpage" component={TestPage} />
+        <Route exact path="/contact" component={ContactPage} />
+        <Route exact path="/archive" component={ArchivePage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </Router>
+  }
 }
 
 export default App;
