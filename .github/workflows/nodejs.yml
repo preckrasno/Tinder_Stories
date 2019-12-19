@@ -25,4 +25,5 @@ jobs:
       env:
         CI: true
     - name: deploy
+      run: |
         pwd
