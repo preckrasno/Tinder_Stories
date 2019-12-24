@@ -25,4 +25,4 @@ jobs:
         CI: true
     - name: deploy
       run: |
-        scp -P 47195 -r build/ preck@176.36.216.56:/home/preck/sites/nazh.me/www/html
+        scp -P 47195 -r build/ preck@176.36.216.56:/home/preck/sites/nazh.me/www/html -i ${{ secrets.SSH_PRIVATE_KEY }}
