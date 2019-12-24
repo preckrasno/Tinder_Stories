@@ -25,4 +25,4 @@ jobs:
         CI: true
     - name: deploy
       run: |
-        cp -a build/ ${{ secrets.$PASS_TO_HTML }}
+        cp -a build/ ${{ secrets.PASS_TO_HTML }}
