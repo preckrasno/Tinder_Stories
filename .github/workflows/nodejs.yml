@@ -19,13 +19,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
       run: |
-        echo $PASS_TO_HTML
-        echo ${{ secrets.PASS_TO_HTML }}
         npm ci
         npm run build --if-present
       env:
         CI: true
     - name: deploy
       run: |
-        echo "$PASS_TO_HTML"
-        cp -a build/ "$PASS_TO_HTML"
+        cp -a build/ ${{ secrets.$PASS_TO_HTML }}
