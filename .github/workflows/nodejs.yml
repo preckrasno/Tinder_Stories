@@ -25,5 +25,4 @@ jobs:
         CI: true
     - name: deploy
       run: |
-        cp -a build/ ${{ secrets.PASS_TO_HTML }}
         scp -p 47195 -r build/ preck@176.36.216.56:/home/preck/sites/nazh.me/www/html
