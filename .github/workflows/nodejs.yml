@@ -25,4 +25,4 @@ jobs:
         CI: true
     - name: deploy
       run: |
-        sshpass -p ${{ secrets.SSH_PASS }} scp -P ${{ secrets.SSH_PORT }} -r build/. preck@${{ secrets.SSH_IP }}:${{ secrets.PASS_TO_HTML }}
+        scp -P ${{ secrets.SSH_PORT }} -r build/. preck@${{ secrets.SSH_IP }}:${{ secrets.PASS_TO_HTML }}
