@@ -4,9 +4,7 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
@@ -24,5 +22,12 @@ jobs:
       env:
         CI: true
     - name: deploy
-      run: |
-        scp -P ${{ secrets.SSH_PORT }} -r build/. preck@${{ secrets.SSH_IP }}:${{ secrets.PASS_TO_HTML }}
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_IP }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.SSH_PORT }}
+        script: whoami
+
+      
